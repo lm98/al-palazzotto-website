@@ -7,12 +7,15 @@ interface ApartmentProps {
   title: string;
   description: string;
   images: string[];
+  // Optionally allow the caller to choose the fit style:
+  fitStyle?: "cover" | "contain";
 }
 
 const ApartmentSection: React.FC<ApartmentProps> = ({
   title,
   description,
   images,
+  fitStyle = "cover", // Default to "cover"
 }) => {
   return (
     <Box
@@ -21,8 +24,6 @@ const ApartmentSection: React.FC<ApartmentProps> = ({
         px: 2,
         py: 4,
         textAlign: "center",
-        // Optionally use a background color if desired:
-        // backgroundColor: "background.default",
       }}
     >
       {/* Apartment Title */}
@@ -36,12 +37,7 @@ const ApartmentSection: React.FC<ApartmentProps> = ({
       {/* Apartment Description */}
       <Typography
         variant="body1"
-        sx={{
-          maxWidth: 600,
-          mx: "auto",
-          mb: 4,
-          color: "text.secondary",
-        }}
+        sx={{ maxWidth: 600, mx: "auto", mb: 4, color: "text.secondary" }}
       >
         {description}
       </Typography>
@@ -59,7 +55,7 @@ const ApartmentSection: React.FC<ApartmentProps> = ({
         <Swiper
           spaceBetween={10}
           slidesPerView={1}
-          style={{ width: "100%", height: "300px" }} // Fixed size for the slideshow
+          style={{ width: "100%", height: "300px" }}
         >
           {images.map((img, index) => (
             <SwiperSlide key={index}>
@@ -70,7 +66,8 @@ const ApartmentSection: React.FC<ApartmentProps> = ({
                 sx={{
                   width: "100%",
                   height: "100%",
-                  objectFit: "cover",
+                  objectFit: fitStyle, // "cover" or "contain"
+                  objectPosition: "center", // Ensures the image is centered within the container
                 }}
               />
             </SwiperSlide>
