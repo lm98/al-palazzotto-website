@@ -42,6 +42,7 @@ import a3i10 from "./assets/a3i10.jpg";
 import a3i11 from "./assets/a3i11.jpg";
 import a3i12 from "./assets/a3i12.jpg";
 import a3i13 from "./assets/a3i13.jpg";
+import a3i14 from "./assets/a3i14.jpg";
 
 const apartments: { title: string; description: string; images: string[] }[] = [
   {
@@ -60,6 +61,7 @@ const apartments: { title: string; description: string; images: string[] }[] = [
     title: "Appartamento Palazzotto",
     description: "Palazzotto con due camere da letto da 4/5 posti.",
     images: [
+      a3i14,
       a3i1,
       a3i2,
       a3i3,
