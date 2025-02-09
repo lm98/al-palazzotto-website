@@ -21,7 +21,7 @@ const Header: React.FC = () => {
     setMobileOpen(!mobileOpen);
   };
 
-  // Define navigation items with label and href
+  // Navigation items with labels and target hrefs
   const navItems = [
     { label: "Home", href: "#home" },
     { label: "Appartamenti", href: "#apartments" },
@@ -30,7 +30,7 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar sx={{ position: "relative", justifyContent: "space-between" }}>
           {/* Centered Title */}
           <Typography
