@@ -13,7 +13,6 @@ import a1i5 from "./assets/a1i5.jpg";
 import a1i6 from "./assets/a1i6.jpg";
 import a1i7 from "./assets/a1i7.jpg";
 import a1i8 from "./assets/a1i8.jpg";
-import a1i9 from "./assets/a1i9.jpg";
 import a1i10 from "./assets/a1i10.jpg";
 
 // Imports for "Appartamento Scirocco" images
@@ -49,13 +48,13 @@ const apartments: { title: string; description: string; images: string[] }[] = [
     title: "Appartamento Cantina",
     description:
       "Appartamento da due posti letto, con bagno privato, cucina e spazio esterno.",
-    images: [a1i1, a1i2, a1i3, a1i4, a1i5, a1i6, a1i7, a1i8, a1i9, a1i10],
+    images: [a1i1, a1i2, a1i3, a1i4, a1i5, a1i6, a1i7, a1i8, a1i10],
   },
   {
     title: "Appartamento Mulino",
     description:
       "Appartamento con due camere matrimoniali, con esterno, bagno privato e cucina.",
-    images: [a2i1, a2i2, a2i3, a2i4, a2i5, a2i6, a2i7, a2i8, a2i9, a2i10],
+    images: [a2i10, a2i2, a2i3, a2i4, a2i5, a2i6, a2i7, a2i8, a2i9, a2i1],
   },
   {
     title: "Appartamento Palazzotto",
