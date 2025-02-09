@@ -45,20 +45,20 @@ import a3i13 from "./assets/a3i13.jpg";
 
 const apartments: { title: string; description: string; images: string[] }[] = [
   {
-    title: "Appartamento Maestrale",
+    title: "Appartamento Cantina",
     description:
       "Appartamento da due posti letto, con bagno privato, cucina e spazio esterno.",
     images: [a1i1, a1i2, a1i3, a1i4, a1i5, a1i6, a1i7, a1i8, a1i9, a1i10],
   },
   {
-    title: "Appartamento Scirocco",
+    title: "Appartamento Mulino",
     description:
       "Appartamento con due camere matrimoniali, con esterno, bagno privato e cucina.",
     images: [a2i1, a2i2, a2i3, a2i4, a2i5, a2i6, a2i7, a2i8, a2i9, a2i10],
   },
   {
-    title: "Palazzotto Levante",
-    description: "Palazzotto da 5 posti letto.",
+    title: "Appartamento Palazzotto",
+    description: "Palazzotto con due camere da letto da 4/5 posti.",
     images: [
       a3i1,
       a3i2,
