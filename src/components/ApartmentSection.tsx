@@ -1,16 +1,8 @@
-import { useState, useEffect, useRef } from "react";
-import {
-  Box,
-  Typography,
-  CardMedia,
-  Paper,
-  Dialog,
-  DialogContent,
-  IconButton,
-} from "@mui/material";
+import { useState, useRef } from "react";
+import { Box, Typography, CardMedia, Paper } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
-import CloseIcon from "@mui/icons-material/Close";
+import VerticalGalleryDialog from "./VerticalGalleryDialog";
 
 interface ApartmentProps {
   title: string;
@@ -26,27 +18,15 @@ const ApartmentSection: React.FC<ApartmentProps> = ({
   fitStyle = "cover",
 }) => {
   const [openGallery, setOpenGallery] = useState(false);
-  const [startIndex, setStartIndex] = useState<number>(0);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  const handleOpenGallery = (index: number) => {
-    setStartIndex(index);
+  const handleOpenGallery = () => {
     setOpenGallery(true);
   };
 
   const handleCloseGallery = () => {
     setOpenGallery(false);
   };
-
-  // Quando il dialogo si apre, scrolla fino all'immagine selezionata
-  useEffect(() => {
-    if (openGallery && contentRef.current) {
-      const element = contentRef.current.querySelector(`#img-${startIndex}`);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }
-  }, [openGallery, startIndex]);
 
   return (
     <Box sx={{ my: 6, px: 2, py: 4, textAlign: "center" }}>
@@ -68,7 +48,6 @@ const ApartmentSection: React.FC<ApartmentProps> = ({
       >
         {description}
       </Typography>
-
       {/* Carosello principale */}
       <Paper
         sx={{
@@ -87,7 +66,7 @@ const ApartmentSection: React.FC<ApartmentProps> = ({
           {images.map((img, index) => (
             <SwiperSlide
               key={index}
-              onClick={() => handleOpenGallery(index)}
+              onClick={() => handleOpenGallery()}
               style={{ cursor: "pointer" }}
             >
               <CardMedia
@@ -105,53 +84,12 @@ const ApartmentSection: React.FC<ApartmentProps> = ({
           ))}
         </Swiper>
       </Paper>
-
-      {/* Dialog con galleria verticale */}
-      <Dialog
-        open={openGallery}
-        onClose={handleCloseGallery}
-        fullWidth
-        maxWidth="md"
-      >
-        <IconButton
-          onClick={handleCloseGallery}
-          sx={{
-            position: "absolute",
-            right: 8,
-            top: 8,
-            color: "white",
-            zIndex: 10,
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
-        <DialogContent
-          ref={contentRef}
-          sx={{
-            p: 2,
-            overflowY: "auto",
-            maxHeight: "80vh",
-            display: "flex",
-            flexDirection: "column",
-            gap: 2,
-          }}
-        >
-          {images.map((img, index) => (
-            <Box key={index} id={`img-${index}`}>
-              <CardMedia
-                component="img"
-                image={img}
-                alt={`Galleria ${title} - immagine ${index + 1}`}
-                sx={{
-                  width: "100%",
-                  objectFit: "contain",
-                  objectPosition: "center",
-                }}
-              />
-            </Box>
-          ))}
-        </DialogContent>
-      </Dialog>
+      <VerticalGalleryDialog
+        openGallery={openGallery}
+        handleCloseGallery={handleCloseGallery}
+        contentRef={contentRef}
+        images={images}
+      />
     </Box>
   );
 };
