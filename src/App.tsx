@@ -84,7 +84,7 @@ const apartments: { title: string; description: string; images: string[] }[] = [
 
 const golfcars: { name: string; description: string; images: string[] }[] = [
   {
-    name: "Golfcar Model A",
+    name: "Philea Golfcars",
     description:
       "Electric and eco-friendly. Perfect for navigating the resort.",
     images: [g1i1],
