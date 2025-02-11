@@ -43,6 +43,10 @@ import a3i12 from "./assets/a3i12.jpg";
 import a3i13 from "./assets/a3i13.jpg";
 import a3i14 from "./assets/a3i14.jpg";
 
+// Import images for Golfcar Model A
+import g1i1 from "./assets/g1i1.jpg";
+import GolfcarsSection from "./components/GolfCarSection";
+
 const apartments: { title: string; description: string; images: string[] }[] = [
   {
     title: "Appartamento Cantina",
@@ -78,6 +82,15 @@ const apartments: { title: string; description: string; images: string[] }[] = [
   },
 ];
 
+const golfcars: { name: string; description: string; images: string[] }[] = [
+  {
+    name: "Golfcar Model A",
+    description:
+      "Electric and eco-friendly. Perfect for navigating the resort.",
+    images: [g1i1],
+  },
+];
+
 const App: React.FC = () => {
   return (
     <>
@@ -93,6 +106,19 @@ const App: React.FC = () => {
             <ApartmentSection
               key={index}
               title={title}
+              description={description}
+              images={images}
+            />
+          ))}
+        </div>
+      </Container>
+
+      <Container>
+        <div id="golfcars">
+          {golfcars.map(({ name, description, images }, index) => (
+            <GolfcarsSection
+              key={index}
+              name={name}
               description={description}
               images={images}
             />
